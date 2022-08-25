@@ -90,7 +90,7 @@ void Dec2RadixI(int decValue, int radValue)
             q = decValue / pow(radValue,i); // Get the quotient
             if (q > 9) // check for letter representation
             {
-                printf("%c",q+55); // working with ASCII, 55 is added to get the ASCII value associated to the LETTERS (A B C D E F) of the numeric values
+                printf("%c",q+55); // working with ASCII, 55 is added to get the ASCII value associated to the LETTERS (A B C D E F) of numeric values
             } else
             {
                 printf("%d",q);
