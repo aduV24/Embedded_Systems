@@ -44,7 +44,7 @@ int main (void)
         Dec2RadixI(num, radix);
         printf("\n");
 
-    } while (num > 0);
+    } while (num >= 0);
    
     return 0;
 }
@@ -58,11 +58,23 @@ void Dec2RadixI(int decValue, int radValue)
 {
         // find the log 
         int q;
-        float msbIndex;
+        float msbIndex,lg;
         int rem;
         int result;
-        msbIndex = ceil(log10(decValue+1)/log10(radValue))-1; // most significant bit
-        printf("The log%d of the number is %.2f\n",radValue,msbIndex);
+        
+
+    
+        lg = log2(decValue);
+        printf("The log2 of the number is %.2f\n",lg);
+
+        if (decValue == 0)
+        {
+            msbIndex = 0;
+        }else
+        {
+            msbIndex = ceil(log10(decValue+1)/log10(radValue))-1; // most significant bit
+        }
+        
         
         result = decValue / radValue;
         rem = decValue % radValue;
@@ -78,7 +90,7 @@ void Dec2RadixI(int decValue, int radValue)
             q = decValue / pow(radValue,i); // Get the quotient
             if (q > 9) // check for letter representation
             {
-                printf("%c",q+55); // Cheating with ASCII
+                printf("%c",q+55); // working with ASCII, 55 is added to get the ASCII value associated to the LETTERS (A B C D E F) of the numeric values
             } else
             {
                 printf("%d",q);
